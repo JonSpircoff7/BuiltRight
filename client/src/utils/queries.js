@@ -1,15 +1,15 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_PRODUCTS = gql`
-  query getProducts($exercise: ID) {
-    products(exercise: $exercise) {
+  query getProducts($bodypart: ID) {
+    products(bodypart: $bodypart) {
       _id
       name
       description
       price
       quantity
       image
-      exercise {
+      bodypart {
         _id
       }
     }
@@ -32,16 +32,16 @@ export const QUERY_ALL_PRODUCTS = gql`
       description
       price
       quantity
-      exercise {
+      bodypart {
         name
       }
     }
   }
 `;
 
-export const QUERY_EXERCISES = gql`
+export const QUERY_BODYPARTS = gql`
   {
-    exercises {
+    bodyparts {
       _id
       name
     }
