@@ -5,8 +5,8 @@ import {
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
+  UPDATE_EXERCISES,
+  UPDATE_CURRENT_EXERCISES,
   CLEAR_CART,
   TOGGLE_CART,
 } from './actions';
@@ -74,16 +74,16 @@ export const reducer = (state, action) => {
         cartOpen: !state.cartOpen,
       };
 
-    case UPDATE_CATEGORIES:
+    case UPDATE_EXERCISES:
       return {
         ...state,
-        categories: [...action.categories],
+        exercises: [...action.exercises],
       };
 
-    case UPDATE_CURRENT_CATEGORY:
+    case UPDATE_CURRENT_EXERCISES:
       return {
         ...state,
-        currentCategory: action.currentCategory,
+        currentExercise: action.currentExercise,
       };
 
     // Return the state as is in the event that the `action.type` passed to our reducer was not accounted for by the developers
