@@ -1,15 +1,15 @@
-import { useReducer } from 'react';
+import { useReducer } from "react";
 import {
   UPDATE_PRODUCTS,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
-  UPDATE_EXERCISES,
-  UPDATE_CURRENT_EXERCISES,
+  UPDATE_BODYPARTS,
+  UPDATE_CURRENT_BODYPARTS,
   CLEAR_CART,
   TOGGLE_CART,
-} from './actions';
+} from "./actions";
 
 // The reducer is a function that accepts the current state and an action. It returns a new state based on that action.
 export const reducer = (state, action) => {
@@ -74,16 +74,16 @@ export const reducer = (state, action) => {
         cartOpen: !state.cartOpen,
       };
 
-    case UPDATE_EXERCISES:
+    case UPDATE_BODYPARTS:
       return {
         ...state,
-        exercises: [...action.exercises],
+        bodyparts: [...action.bodyparts],
       };
 
-    case UPDATE_CURRENT_EXERCISES:
+    case UPDATE_CURRENT_BODYPARTS:
       return {
         ...state,
-        currentExercise: action.currentExercise,
+        currentBodypart: action.currentBodypart,
       };
 
     // Return the state as is in the event that the `action.type` passed to our reducer was not accounted for by the developers
