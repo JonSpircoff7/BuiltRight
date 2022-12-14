@@ -8,7 +8,7 @@ const resolvers = {
     bodyparts: async () => {
       return await Bodypart.find();
     },
-    products: async (parent, { bodypart, name }) => {
+    exercises: async (parent, { bodypart, name }) => {
       const params = {};
 
       if (bodypart) {
@@ -29,7 +29,7 @@ const resolvers = {
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "orders.products",
+          path: "orders.exercises",
           populate: "bodypart",
         });
 
@@ -43,7 +43,7 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "orders.products",
+          path: "orders.exercises",
           populate: "bodypart",
         });
 
@@ -54,21 +54,21 @@ const resolvers = {
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
+      const order = new Order({ exercises: args.exercises });
       const line_items = [];
 
-      const { products } = await order.populate("products");
+      const { exercises } = await order.populate("exercises");
 
-      for (let i = 0; i < products.length; i++) {
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`],
+      for (let i = 0; i < exercises.length; i++) {
+        const product = await stripe.exercises.create({
+          name: exercises[i].name,
+          description: exercises[i].description,
+          images: [`${url}/images/${exercises[i].image}`],
         });
 
         const price = await stripe.prices.create({
           product: product.id,
-          unit_amount: products[i].price * 100,
+          unit_amount: exercises[i].price * 100,
           currency: "usd",
         });
 
@@ -96,10 +96,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
+    addOrder: async (parent, { exercises }, context) => {
       console.log(context);
       if (context.user) {
-        const order = new Order({ products });
+        const order = new Order({ exercises });
 
         await User.findByIdAndUpdate(context.user._id, {
           $push: { orders: order },
