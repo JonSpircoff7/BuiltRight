@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_EXERCISES = gql`
-  query getProducts($bodypart: ID) {
+  query getExercises($bodypart: ID) {
     exercises(bodypart: $bodypart) {
       _id
       name

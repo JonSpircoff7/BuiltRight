@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import ProductItem from "../ProductItem";
+import ExerciseItem from "../ExerciseItem";
 import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_EXERCISES } from "../../utils/actions";
 import { useQuery } from "@apollo/client";
@@ -7,7 +7,7 @@ import { QUERY_EXERCISES } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
 
-function ProductList() {
+function ExerciseList() {
   const [state, dispatch] = useStoreContext();
 
   const { currentBodypart } = state;
@@ -49,7 +49,7 @@ function ProductList() {
       {state.exercises.length ? (
         <div className="flex-row">
           {filterProducts().map((exercise) => (
-            <ProductItem
+            <ExerciseItem
               key={exercise._id}
               _id={exercise._id}
               image={exercise.image}
@@ -67,4 +67,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default ExerciseList;
