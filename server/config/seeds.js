@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { User, Product, Bodypart } = require("../models");
+const { User, Exercise, Bodypart } = require("../models");
 
 db.once("open", async () => {
   await Bodypart.deleteMany();
@@ -14,9 +14,9 @@ db.once("open", async () => {
 
   console.log("bodyparts seeded");
 
-  await Product.deleteMany();
+  await Exercise.deleteMany();
 
-  const exercises = await Product.insertMany([
+  const exercises = await Exercise.insertMany([
     {
       name: "Tin of Cookies",
       description:
