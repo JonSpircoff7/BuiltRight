@@ -93,6 +93,6 @@ export const reducer = (state, action) => {
   }
 };
 
-export function useProductReducer(initialState) {
+export function useExerciseReducer(initialState) {
   return useReducer(reducer, initialState);
 }
