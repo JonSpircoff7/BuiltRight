@@ -12,7 +12,7 @@ import {
 } from "../utils/actions";
 
 const initialState = {
-  products: [],
+  exercises: [],
   cart: [
     {
       _id: "1",
@@ -33,11 +33,11 @@ const initialState = {
 test("UPDATE_EXERCISES", () => {
   let newState = reducer(initialState, {
     type: UPDATE_EXERCISES,
-    products: [{}, {}],
+    exercises: [{}, {}],
   });
 
-  expect(newState.products.length).toBe(2);
-  expect(initialState.products.length).toBe(0);
+  expect(newState.exercises.length).toBe(2);
+  expect(initialState.exercises.length).toBe(0);
 });
 
 test("ADD_TO_CART", () => {
@@ -87,7 +87,7 @@ test("REMOVE_FROM_CART", () => {
 test("ADD_MULTIPLE_TO_CART", () => {
   let newState = reducer(initialState, {
     type: ADD_MULTIPLE_TO_CART,
-    products: [{}, {}],
+    exercises: [{}, {}],
   });
 
   expect(newState.cart.length).toBe(4);
