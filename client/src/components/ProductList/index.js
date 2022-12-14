@@ -18,16 +18,16 @@ function ProductList() {
     if (data) {
       dispatch({
         type: UPDATE_EXERCISES,
-        products: data.products,
+        exercises: data.exercises,
       });
-      data.products.forEach((product) => {
-        idbPromise("products", "put", product);
+      data.exercises.forEach((product) => {
+        idbPromise("exercises", "put", product);
       });
     } else if (!loading) {
-      idbPromise("products", "get").then((products) => {
+      idbPromise("exercises", "get").then((exercises) => {
         dispatch({
           type: UPDATE_EXERCISES,
-          products: products,
+          exercises: exercises,
         });
       });
     }
@@ -35,10 +35,10 @@ function ProductList() {
 
   function filterProducts() {
     if (!currentBodypart) {
-      return state.products;
+      return state.exercises;
     }
 
-    return state.products.filter(
+    return state.exercises.filter(
       (product) => product.bodypart._id === currentBodypart
     );
   }
@@ -46,7 +46,7 @@ function ProductList() {
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
-      {state.products.length ? (
+      {state.exercises.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
             <ProductItem
@@ -60,7 +60,7 @@ function ProductList() {
           ))}
         </div>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3>You haven't added any exercises yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
