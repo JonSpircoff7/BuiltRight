@@ -42,7 +42,7 @@ const typeDefs = gql`
   type Query {
     bodyparts: [Bodypart]
     exercises(bodypart: ID, name: String): [Product]
-    product(_id: ID!): Product
+    exercise(_id: ID!): Product
     user: User
     order(_id: ID!): Order
     checkout(exercises: [ID]!): Checkout
