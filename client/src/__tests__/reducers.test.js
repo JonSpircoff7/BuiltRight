@@ -43,7 +43,7 @@ test("UPDATE_EXERCISES", () => {
 test("ADD_TO_CART", () => {
   let newState = reducer(initialState, {
     type: ADD_TO_CART,
-    product: { purchaseQuantity: 1 },
+    exercise: { purchaseQuantity: 1 },
   });
 
   expect(newState.cart.length).toBe(3);
