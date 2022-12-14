@@ -22,34 +22,34 @@ function Detail() {
 
   const { loading, data } = useQuery(QUERY_EXERCISES);
 
-  const { products, cart } = state;
+  const { exercises, cart } = state;
 
   useEffect(() => {
     // already in global store
-    if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+    if (exercises.length) {
+      setCurrentProduct(exercises.find((product) => product._id === id));
     }
     // retrieved from server
     else if (data) {
       dispatch({
         type: UPDATE_EXERCISES,
-        products: data.products,
+        exercises: data.exercises,
       });
 
-      data.products.forEach((product) => {
-        idbPromise('products', 'put', product);
+      data.exercises.forEach((product) => {
+        idbPromise('exercises', 'put', product);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('products', 'get').then((indexedProducts) => {
+      idbPromise('exercises', 'get').then((indexedProducts) => {
         dispatch({
           type: UPDATE_EXERCISES,
-          products: indexedProducts,
+          exercises: indexedProducts,
         });
       });
     }
-  }, [products, data, loading, dispatch, id]);
+  }, [exercises, data, loading, dispatch, id]);
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
