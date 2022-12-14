@@ -16,7 +16,7 @@ db.once("open", async () => {
 
   await Product.deleteMany();
 
-  const products = await Product.insertMany([
+  const exercises = await Product.insertMany([
     {
       name: "Tin of Cookies",
       description:
@@ -127,7 +127,7 @@ db.once("open", async () => {
     },
   ]);
 
-  console.log("products seeded");
+  console.log("exercises seeded");
 
   await User.deleteMany();
 
@@ -138,7 +138,7 @@ db.once("open", async () => {
     password: "password12345",
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id],
+        exercises: [exercises[0]._id, exercises[0]._id, exercises[1]._id],
       },
     ],
   });
