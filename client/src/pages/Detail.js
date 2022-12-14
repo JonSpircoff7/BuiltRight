@@ -8,9 +8,9 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
-  UPDATE_PRODUCTS,
+  UPDATE_EXERCISES,
 } from '../utils/actions';
-import { QUERY_PRODUCTS } from '../utils/queries';
+import { QUERY_EXERCISES } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 
@@ -20,7 +20,7 @@ function Detail() {
 
   const [currentProduct, setCurrentProduct] = useState({});
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_EXERCISES);
 
   const { products, cart } = state;
 
@@ -32,7 +32,7 @@ function Detail() {
     // retrieved from server
     else if (data) {
       dispatch({
-        type: UPDATE_PRODUCTS,
+        type: UPDATE_EXERCISES,
         products: data.products,
       });
 
@@ -44,7 +44,7 @@ function Detail() {
     else if (!loading) {
       idbPromise('products', 'get').then((indexedProducts) => {
         dispatch({
-          type: UPDATE_PRODUCTS,
+          type: UPDATE_EXERCISES,
           products: indexedProducts,
         });
       });
