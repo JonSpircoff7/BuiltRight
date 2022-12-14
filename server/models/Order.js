@@ -10,7 +10,7 @@ const orderSchema = new Schema({
   exercises: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'Exercise'
     }
   ]
 });
