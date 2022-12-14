@@ -27,7 +27,7 @@ function Detail() {
   useEffect(() => {
     // already in global store
     if (exercises.length) {
-      setCurrentProduct(exercises.find((product) => product._id === id));
+      setCurrentProduct(exercises.find((exercise) => exercise._id === id));
     }
     // retrieved from server
     else if (data) {
@@ -36,8 +36,8 @@ function Detail() {
         exercises: data.exercises,
       });
 
-      data.exercises.forEach((product) => {
-        idbPromise('exercises', 'put', product);
+      data.exercises.forEach((exercise) => {
+        idbPromise('exercises', 'put', exercise);
       });
     }
     // get cache from idb
@@ -66,7 +66,7 @@ function Detail() {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 },
+        exercise: { ...currentProduct, purchaseQuantity: 1 },
       });
       idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
     }

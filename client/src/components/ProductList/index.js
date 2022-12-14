@@ -20,8 +20,8 @@ function ProductList() {
         type: UPDATE_EXERCISES,
         exercises: data.exercises,
       });
-      data.exercises.forEach((product) => {
-        idbPromise("exercises", "put", product);
+      data.exercises.forEach((exercise) => {
+        idbPromise("exercises", "put", exercise);
       });
     } else if (!loading) {
       idbPromise("exercises", "get").then((exercises) => {
@@ -39,7 +39,7 @@ function ProductList() {
     }
 
     return state.exercises.filter(
-      (product) => product.bodypart._id === currentBodypart
+      (exercise) => exercise.bodypart._id === currentBodypart
     );
   }
 
@@ -48,14 +48,14 @@ function ProductList() {
       <h2>Our Products:</h2>
       {state.exercises.length ? (
         <div className="flex-row">
-          {filterProducts().map((product) => (
+          {filterProducts().map((exercise) => (
             <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
+              key={exercise._id}
+              _id={exercise._id}
+              image={exercise.image}
+              name={exercise.name}
+              price={exercise.price}
+              quantity={exercise.quantity}
             />
           ))}
         </div>
