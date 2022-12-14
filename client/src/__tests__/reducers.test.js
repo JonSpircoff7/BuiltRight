@@ -1,6 +1,6 @@
 import { reducer } from "../utils/reducers";
 import {
-  UPDATE_PRODUCTS,
+  UPDATE_EXERCISES,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
@@ -30,9 +30,9 @@ const initialState = {
   currentBodyparts: "1",
 };
 
-test("UPDATE_PRODUCTS", () => {
+test("UPDATE_EXERCISES", () => {
   let newState = reducer(initialState, {
-    type: UPDATE_PRODUCTS,
+    type: UPDATE_EXERCISES,
     products: [{}, {}],
   });
 
