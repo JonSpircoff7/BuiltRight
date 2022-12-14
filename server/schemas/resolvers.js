@@ -23,7 +23,7 @@ const resolvers = {
 
       return await Product.find(params).populate("bodypart");
     },
-    product: async (parent, { _id }) => {
+    exercise: async (parent, { _id }) => {
       return await Product.findById(_id).populate("bodypart");
     },
     user: async (parent, args, context) => {
@@ -60,14 +60,14 @@ const resolvers = {
       const { exercises } = await order.populate("exercises");
 
       for (let i = 0; i < exercises.length; i++) {
-        const product = await stripe.exercises.create({
+        const exercise = await stripe.exercises.create({
           name: exercises[i].name,
           description: exercises[i].description,
           images: [`${url}/images/${exercises[i].image}`],
         });
 
         const price = await stripe.prices.create({
-          product: product.id,
+          exercise: exercise.id,
           unit_amount: exercises[i].price * 100,
           currency: "usd",
         });
