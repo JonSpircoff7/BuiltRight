@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Product, Bodypart, Order } = require("../models");
+const { User, Exercise, Bodypart, Order } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -21,10 +21,10 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate("bodypart");
+      return await Exercise.find(params).populate("bodypart");
     },
     exercise: async (parent, { _id }) => {
-      return await Product.findById(_id).populate("bodypart");
+      return await Exercise.findById(_id).populate("bodypart");
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -119,10 +119,10 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    updateProduct: async (parent, { _id, quantity }) => {
+    updateExercise: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(
+      return await Exercise.findByIdAndUpdate(
         _id,
         { $inc: { quantity: decrement } },
         { new: true }
