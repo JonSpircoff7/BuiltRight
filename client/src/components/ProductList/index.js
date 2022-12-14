@@ -33,7 +33,7 @@ function ExerciseList() {
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
+  function filterExercises() {
     if (!currentBodypart) {
       return state.exercises;
     }
@@ -45,10 +45,10 @@ function ExerciseList() {
 
   return (
     <div className="my-2">
-      <h2>Our Products:</h2>
+      <h2>Our Exercises:</h2>
       {state.exercises.length ? (
         <div className="flex-row">
-          {filterProducts().map((exercise) => (
+          {filterExercises().map((exercise) => (
             <ExerciseItem
               key={exercise._id}
               _id={exercise._id}

@@ -42,10 +42,10 @@ function Detail() {
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('exercises', 'get').then((indexedProducts) => {
+      idbPromise('exercises', 'get').then((indexedExercises) => {
         dispatch({
           type: UPDATE_EXERCISES,
-          exercises: indexedProducts,
+          exercises: indexedExercises,
         });
       });
     }
@@ -85,7 +85,7 @@ function Detail() {
     <>
       {currentExercise && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/">← Back to Exercises</Link>
 
           <h2>{currentExercise.name}</h2>
 
