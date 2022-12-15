@@ -12,7 +12,7 @@ function ExerciseItem(item) {
     image,
     name,
     _id,
-    price,
+    instruction,
     quantity
   } = item;
 
@@ -50,7 +50,7 @@ function ExerciseItem(item) {
       </Link>
       <div>
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span>${price}</span>
+        <span>${instruction}</span>
       </div>
       <button onClick={addToCart}>Add to cart</button>
     </div>

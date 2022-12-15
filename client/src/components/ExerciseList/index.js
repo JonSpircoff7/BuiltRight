@@ -54,7 +54,7 @@ function ExerciseList() {
               _id={exercise._id}
               image={exercise.image}
               name={exercise.name}
-              price={exercise.price}
+              instruction={exercise.instruction}
               quantity={exercise.quantity}
             />
           ))}

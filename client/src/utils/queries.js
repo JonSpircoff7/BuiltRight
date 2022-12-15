@@ -6,7 +6,7 @@ export const QUERY_EXERCISES = gql`
       _id
       name
       description
-      price
+      instruction
       quantity
       image
       bodypart {
@@ -30,7 +30,7 @@ export const QUERY_ALL_EXERCISES = gql`
       _id
       name
       description
-      price
+      instruction
       quantity
       bodypart {
         name
@@ -60,7 +60,7 @@ export const QUERY_USER = gql`
           _id
           name
           description
-          price
+          instruction
           quantity
           image
         }
