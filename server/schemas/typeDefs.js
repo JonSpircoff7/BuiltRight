@@ -12,7 +12,7 @@ const typeDefs = gql`
     bodypart: [Bodypart]
     image: String
     difficulty: String
-    quantity: Int
+    weight: Int
     instructions: String
     bodypart: Bodypart
   }
@@ -63,7 +63,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): User
-    updateExercise(_id: ID!, quantity: Int!): Exercise
+    updateExercise(_id: ID!, weight: Int!): Exercise
     login(email: String!, password: String!): Auth
   }
 `;

@@ -25,7 +25,7 @@ db.once("open", async () => {
       difficulty: "",
       bodypart: bodyparts[0]._id,
       instruction: "",
-      quantity: 500,
+      weight: 500,
     },
     {
       name: "Canned Coffee",
@@ -35,7 +35,7 @@ db.once("open", async () => {
       difficulty: "",
       bodypart: bodyparts[0]._id,
       instruction: "",
-      quantity: 500,
+      weight: 500,
     },
     {
       name: "Toilet Paper",
@@ -45,7 +45,7 @@ db.once("open", async () => {
       image: "toilet-paper.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 20,
+      weight: 20,
     },
     {
       name: "Handmade Soap",
@@ -55,7 +55,7 @@ db.once("open", async () => {
       image: "soap.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 50,
+      weight: 50,
     },
     {
       name: "Set of Wooden Spoons",
@@ -65,7 +65,7 @@ db.once("open", async () => {
       image: "wooden-spoons.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 100,
+      weight: 100,
     },
     {
       name: "Camera",
@@ -75,7 +75,7 @@ db.once("open", async () => {
       image: "camera.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 30,
+      weight: 30,
     },
     {
       name: "Tablet",
@@ -85,7 +85,7 @@ db.once("open", async () => {
       image: "tablet.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 30,
+      weight: 30,
     },
     {
       name: "Tales at Bedtime",
@@ -95,7 +95,7 @@ db.once("open", async () => {
       image: "bedtime-book.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 100,
+      weight: 100,
     },
     {
       name: "Spinning Top",
@@ -105,7 +105,7 @@ db.once("open", async () => {
       image: "spinning-top.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 1000,
+      weight: 1000,
     },
     {
       name: "Set of Plastic Horses",
@@ -115,7 +115,7 @@ db.once("open", async () => {
       image: "plastic-horses.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 1000,
+      weight: 1000,
     },
     {
       name: "Teddy Bear",
@@ -125,7 +125,7 @@ db.once("open", async () => {
       image: "teddy-bear.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 100,
+      weight: 100,
     },
     {
       name: "Alphabet Blocks",
@@ -135,7 +135,7 @@ db.once("open", async () => {
       image: "alphabet-blocks.jpg",
       difficulty: "",
       instruction: "",
-      quantity: 600,
+      weight: 600,
     },
   ]);
 

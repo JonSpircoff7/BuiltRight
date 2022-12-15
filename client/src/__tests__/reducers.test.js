@@ -17,12 +17,12 @@ const initialState = {
     {
       _id: "1",
       name: "Soup",
-      purchaseQuantity: 1,
+      purchaseWeight: 1,
     },
     {
       _id: "2",
       name: "Bread",
-      purchaseQuantity: 2,
+      purchaseWeight: 2,
     },
   ],
   cartOpen: false,
@@ -43,7 +43,7 @@ test("UPDATE_EXERCISES", () => {
 test("ADD_TO_CART", () => {
   let newState = reducer(initialState, {
     type: ADD_TO_CART,
-    exercise: { purchaseQuantity: 1 },
+    exercise: { purchaseWeight: 1 },
   });
 
   expect(newState.cart.length).toBe(3);
@@ -54,7 +54,7 @@ test("UPDATE_CART_QUANTITY", () => {
   let newState = reducer(initialState, {
     type: UPDATE_CART_QUANTITY,
     _id: "1",
-    purchaseQuantity: 3,
+    purchaseWeight: 3,
   });
 
   expect(newState.cartOpen).toBe(true);

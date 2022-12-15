@@ -29,8 +29,10 @@ const exerciseSchema = new Schema({
     type: String,
   },
   weight: {
-    type: String,
+    type: Number,
+    min: 0,
     required: true,
+    default: 0,
   },
   bodypart: {
     type: Schema.Types.ObjectId,

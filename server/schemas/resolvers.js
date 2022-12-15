@@ -74,7 +74,7 @@ const resolvers = {
 
         line_items.push({
           instruction: instruction.id,
-          quantity: 1,
+          weight: 1,
         });
       }
 
@@ -124,7 +124,7 @@ const resolvers = {
 
       return await Exercise.findByIdAndUpdate(
         _id,
-        { $inc: { quantity: decrement } },
+        { $inc: { weight: decrement } },
         { new: true }
       );
     },

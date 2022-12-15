@@ -24,18 +24,18 @@ function ExerciseItem(item) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        purchaseWeight: parseInt(itemInCart.purchaseQuantity) + 1
       });
       idbPromise('cart', 'put', {
         ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        purchaseWeight: parseInt(itemInCart.purchaseQuantity) + 1
       });
     } else {
       dispatch({
         type: ADD_TO_CART,
-        exercise: { ...item, purchaseQuantity: 1 }
+        exercise: { ...item, purchaseWeight: 1 }
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...item, purchaseWeight: 1 });
     }
   }
 
