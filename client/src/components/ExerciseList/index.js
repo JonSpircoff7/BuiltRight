@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ExerciseItem from "../ExerciseItem";
 import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_EXERCISES } from "../../utils/actions";
@@ -7,14 +7,39 @@ import { QUERY_EXERCISES } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
 
+
+import axios from 'axios';
+var FormData = require('form-data');
+var data = new FormData();
+
+var config = {
+  method: 'get',
+  url: 'https://wger.de/api/v2/exerciseinfo',
+  data : data
+};
+
+async function getExerciseData() {
+  const exerciseData = await axios(config)
+  return exerciseData
+}
+
+
 function ExerciseList() {
+  const [results, setResults] = useState([]);
+
   const [state, dispatch] = useStoreContext();
-
+  
   const { currentBodypart } = state;
-
+  
   const { loading, data } = useQuery(QUERY_EXERCISES);
-
+  
+  
   useEffect(() => {
+  getExerciseData()
+  .then((exercises) => {
+    console.log(exercises.data.results);
+    setResults(exercises.data.results)
+  })
     if (data) {
       dispatch({
         type: UPDATE_EXERCISES,
@@ -48,9 +73,9 @@ function ExerciseList() {
       <h2>Our Exercises:</h2>
       {state.exercises.length ? (
         <div className="flex-row">
-          {filterExercises().map((exercise) => (
+          {results.map((exercise) => (
             <ExerciseItem
-              key={exercise._id}
+              key={exercise.uuid}
               _id={exercise._id}
               image={exercise.image}
               name={exercise.name}
