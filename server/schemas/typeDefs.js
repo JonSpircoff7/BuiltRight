@@ -9,12 +9,11 @@ const typeDefs = gql`
   type Exercise {
     _id: ID
     name: String
-    bodypart: [Bodypart]
     image: String
     difficulty: String
     weight: Int
     instructions: String
-    bodypart: Bodypart
+    bodypart: [Bodypart]
     reps: Int
     sets: Int
   }
