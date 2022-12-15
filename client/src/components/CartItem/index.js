@@ -29,9 +29,9 @@ const CartItem = ({ item }) => {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: item._id,
-        purchaseQuantity: parseInt(value)
+        purchaseWeight: parseInt(value)
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
+      idbPromise('cart', 'put', { ...item, purchaseWeight: parseInt(value) });
 
     }
   }
@@ -45,7 +45,7 @@ const CartItem = ({ item }) => {
         />
       </div>
       <div>
-        <div>{item.name}, ${item.price}</div>
+        <div>{item.name}, ${item.instruction}</div>
         <div>
           <span>Qty:</span>
           <input

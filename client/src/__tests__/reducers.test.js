@@ -1,6 +1,6 @@
 import { reducer } from "../utils/reducers";
 import {
-  UPDATE_PRODUCTS,
+  UPDATE_EXERCISES,
   ADD_TO_CART,
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
@@ -12,17 +12,17 @@ import {
 } from "../utils/actions";
 
 const initialState = {
-  products: [],
+  exercises: [],
   cart: [
     {
       _id: "1",
       name: "Soup",
-      purchaseQuantity: 1,
+      purchaseWeight: 1,
     },
     {
       _id: "2",
       name: "Bread",
-      purchaseQuantity: 2,
+      purchaseWeight: 2,
     },
   ],
   cartOpen: false,
@@ -30,20 +30,20 @@ const initialState = {
   currentBodyparts: "1",
 };
 
-test("UPDATE_PRODUCTS", () => {
+test("UPDATE_EXERCISES", () => {
   let newState = reducer(initialState, {
-    type: UPDATE_PRODUCTS,
-    products: [{}, {}],
+    type: UPDATE_EXERCISES,
+    exercises: [{}, {}],
   });
 
-  expect(newState.products.length).toBe(2);
-  expect(initialState.products.length).toBe(0);
+  expect(newState.exercises.length).toBe(2);
+  expect(initialState.exercises.length).toBe(0);
 });
 
 test("ADD_TO_CART", () => {
   let newState = reducer(initialState, {
     type: ADD_TO_CART,
-    product: { purchaseQuantity: 1 },
+    exercise: { purchaseWeight: 1 },
   });
 
   expect(newState.cart.length).toBe(3);
@@ -54,7 +54,7 @@ test("UPDATE_CART_QUANTITY", () => {
   let newState = reducer(initialState, {
     type: UPDATE_CART_QUANTITY,
     _id: "1",
-    purchaseQuantity: 3,
+    purchaseWeight: 3,
   });
 
   expect(newState.cartOpen).toBe(true);
@@ -87,7 +87,7 @@ test("REMOVE_FROM_CART", () => {
 test("ADD_MULTIPLE_TO_CART", () => {
   let newState = reducer(initialState, {
     type: ADD_MULTIPLE_TO_CART,
-    products: [{}, {}],
+    exercises: [{}, {}],
   });
 
   expect(newState.cart.length).toBe(4);
