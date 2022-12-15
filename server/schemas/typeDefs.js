@@ -9,7 +9,7 @@ const typeDefs = gql`
   type Exercise {
     _id: ID
     name: String
-    description: String
+    bodypart: [Bodypart]
     image: String
     quantity: Int
     price: Float

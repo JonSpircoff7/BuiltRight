@@ -27,6 +27,7 @@ const exerciseSchema = new Schema({
   },
   weight: {
     type: String,
+    required: true,
   },
   bodypart: {
     type: Schema.Types.ObjectId,
@@ -34,10 +35,14 @@ const exerciseSchema = new Schema({
     required: true,
   },
   reps: {
-    type: String,
+    type: Number,
+    required: true,
+    default: 0,
   },
   sets: {
-    type: String,
+    type: Number,
+    required: true,
+    default: 0,
   },
 });
 

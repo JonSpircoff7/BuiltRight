@@ -62,7 +62,7 @@ const resolvers = {
       for (let i = 0; i < exercises.length; i++) {
         const exercise = await stripe.exercises.create({
           name: exercises[i].name,
-          description: exercises[i].description,
+          bodypart: exercises[i].description,
           images: [`${url}/images/${exercises[i].image}`],
         });
 
