@@ -66,14 +66,14 @@ const resolvers = {
           images: [`${url}/images/${exercises[i].image}`],
         });
 
-        const price = await stripe.prices.create({
+        const instruction = await stripe.instructions.create({
           exercise: exercise.id,
-          unit_amount: exercises[i].price * 100,
+          unit_amount: exercises[i].instruction * 100,
           currency: "usd",
         });
 
         line_items.push({
-          price: price.id,
+          instruction: instruction.id,
           quantity: 1,
         });
       }

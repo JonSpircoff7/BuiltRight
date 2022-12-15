@@ -13,7 +13,7 @@ const typeDefs = gql`
     image: String
     difficulty: String
     quantity: Int
-    price: Float
+    instructions: String
     bodypart: Bodypart
   }
 
