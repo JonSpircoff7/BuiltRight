@@ -9,11 +9,14 @@ const typeDefs = gql`
   type Exercise {
     _id: ID
     name: String
-    description: String
+    bodypart: [Bodypart]
     image: String
-    quantity: Int
-    price: Float
+    difficulty: String
+    weight: Int
+    instructions: String
     bodypart: Bodypart
+    reps: Int
+    sets: Int
   }
 
   type Order {
@@ -62,7 +65,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): User
-    updateExercise(_id: ID!, quantity: Int!): Exercise
+    updateExercise(_id: ID!, weight: Int!): Exercise
     login(email: String!, password: String!): Auth
   }
 `;

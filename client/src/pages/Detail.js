@@ -57,18 +57,18 @@ function Detail() {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        purchaseWeight: parseInt(itemInCart.purchaseQuantity) + 1,
       });
       idbPromise('cart', 'put', {
         ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        purchaseWeight: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
       dispatch({
         type: ADD_TO_CART,
-        exercise: { ...currentExercise, purchaseQuantity: 1 },
+        exercise: { ...currentExercise, purchaseWeight: 1 },
       });
-      idbPromise('cart', 'put', { ...currentExercise, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', { ...currentExercise, purchaseWeight: 1 });
     }
   };
 
@@ -92,7 +92,7 @@ function Detail() {
           <p>{currentExercise.description}</p>
 
           <p>
-            <strong>Price:</strong>${currentExercise.price}{' '}
+            <strong>Instruction:</strong>${currentExercise.price}{' '}
             <button onClick={addToCart}>Add to Cart</button>
             <button
               disabled={!cart.find((p) => p._id === currentExercise._id)}

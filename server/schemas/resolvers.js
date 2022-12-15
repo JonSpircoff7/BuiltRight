@@ -62,19 +62,19 @@ const resolvers = {
       for (let i = 0; i < exercises.length; i++) {
         const exercise = await stripe.exercises.create({
           name: exercises[i].name,
-          description: exercises[i].description,
+          bodypart: exercises[i].description,
           images: [`${url}/images/${exercises[i].image}`],
         });
 
-        const price = await stripe.prices.create({
+        const instruction = await stripe.instructions.create({
           exercise: exercise.id,
-          unit_amount: exercises[i].price * 100,
+          unit_amount: exercises[i].instruction * 100,
           currency: "usd",
         });
 
         line_items.push({
-          price: price.id,
-          quantity: 1,
+          instruction: instruction.id,
+          weight: 1,
         });
       }
 
@@ -124,7 +124,7 @@ const resolvers = {
 
       return await Exercise.findByIdAndUpdate(
         _id,
-        { $inc: { quantity: decrement } },
+        { $inc: { weight: decrement } },
         { new: true }
       );
     },

@@ -2,32 +2,52 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
+const Bodypart = require("./Bodypart");
+
 const exerciseSchema = new Schema({
+  id: {
+    type: DataTypes.INTEGER,
+    // prevents null values
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   name: {
     type: String,
     required: true,
     trim: true,
   },
-  description: {
-    type: String,
-  },
+  bodypart: [Bodypart.schema],
+
   image: {
     type: String,
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0.99,
+  difficulty: {
+    type: String,
   },
-  quantity: {
+  instructions: {
+    type: String,
+  },
+  weight: {
     type: Number,
     min: 0,
+    required: true,
     default: 0,
   },
   bodypart: {
     type: Schema.Types.ObjectId,
     ref: "Bodypart",
     required: true,
+  },
+  reps: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
+  sets: {
+    type: Number,
+    required: true,
+    default: 0,
   },
 });
 
