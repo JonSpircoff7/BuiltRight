@@ -119,8 +119,8 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    updateExercise: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
+    updateExercise: async (parent, { _id, weight }) => {
+      const decrement = Math.abs(weight) * -1;
 
       return await Exercise.findByIdAndUpdate(
         _id,

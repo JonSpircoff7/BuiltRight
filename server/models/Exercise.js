@@ -6,7 +6,8 @@ const Bodypart = require("./Bodypart");
 
 const exerciseSchema = new Schema({
   id: {
-    type: DataTypes.INTEGER,
+    // type: DataTypes.INTEGER,
+       type: Number,
     // prevents null values
     allowNull: false,
     primaryKey: true,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
@@ -27,7 +27,7 @@ const CartItem = ({ item }) => {
 
     } else {
       dispatch({
-        type: UPDATE_CART_QUANTITY,
+        type: UPDATE_CART_WEIGHT,
         _id: item._id,
         purchaseWeight: parseInt(value)
       });
@@ -51,7 +51,7 @@ const CartItem = ({ item }) => {
           <input
             type="number"
             placeholder="1"
-            value={item.purchaseQuantity}
+            value={item.purchaseWeight}
             onChange={onChange}
           />
           <span

@@ -20,7 +20,7 @@ export const ADD_ORDER = gql`
         name
         description
         instruction
-        quantity
+        weight
         bodypart {
           name
         }

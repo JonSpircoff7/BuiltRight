@@ -7,7 +7,7 @@ export const QUERY_EXERCISES = gql`
       name
       description
       instruction
-      quantity
+      weight
       image
       bodypart {
         _id
@@ -31,7 +31,7 @@ export const QUERY_ALL_EXERCISES = gql`
       name
       description
       instruction
-      quantity
+      weight
       bodypart {
         name
       }
@@ -61,7 +61,7 @@ export const QUERY_USER = gql`
           name
           description
           instruction
-          quantity
+          weight
           image
         }
       }
