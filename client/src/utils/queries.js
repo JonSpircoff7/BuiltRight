@@ -49,22 +49,24 @@ export const QUERY_BODYPARTS = gql`
 `;
 
 export const QUERY_USER = gql`
-  {
-    user {
-      firstName
-      lastName
-      orders {
+query User {
+  user {
+    _id
+    firstName
+    lastName
+    email
+    orders {
+      exercises {
         _id
-        purchaseDate
-        exercises {
-          _id
-          name
-          description
-          instruction
-          weight
-          image
-        }
+        name
+        instructions
+        weight
+        image
+        difficulty
+        reps
+        sets
       }
     }
   }
+}
 `;

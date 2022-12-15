@@ -18,8 +18,7 @@ const exerciseSchema = new Schema({
     required: true,
     trim: true,
   },
-  bodypart: [Bodypart.schema],
-
+  // bodypart: [Bodypart.schema],
   image: {
     type: String,
   },
@@ -35,11 +34,12 @@ const exerciseSchema = new Schema({
     required: true,
     default: 0,
   },
-  bodypart: {
+  bodypart: [
+    {
     type: Schema.Types.ObjectId,
     ref: "Bodypart",
-    required: true,
-  },
+  }
+  ],
   reps: {
     type: Number,
     required: true,
