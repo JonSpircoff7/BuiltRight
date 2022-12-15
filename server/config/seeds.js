@@ -27,6 +27,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 500,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Canned Coffee",
@@ -38,6 +39,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 500,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Toilet Paper",
@@ -49,6 +51,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 20,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Handmade Soap",
@@ -60,6 +63,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 50,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Set of Wooden Spoons",
@@ -71,6 +75,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 100,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Camera",
@@ -82,6 +87,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 30,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Tablet",
@@ -93,6 +99,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 30,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Tales at Bedtime",
@@ -104,6 +111,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 100,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Spinning Top",
@@ -115,6 +123,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 1000,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Set of Plastic Horses",
@@ -126,6 +135,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 1000,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Teddy Bear",
@@ -137,6 +147,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 100,
       reps: 5,
+      sets: 3,
     },
     {
       name: "Alphabet Blocks",
@@ -148,6 +159,7 @@ db.once("open", async () => {
       instruction: "",
       weight: 600,
       reps: 5,
+      sets: 3,
     },
   ]);
 

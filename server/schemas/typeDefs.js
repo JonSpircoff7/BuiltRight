@@ -16,6 +16,7 @@ const typeDefs = gql`
     instructions: String
     bodypart: Bodypart
     reps: Int
+    sets: Int
   }
 
   type Order {
