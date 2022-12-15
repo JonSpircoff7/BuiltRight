@@ -26,6 +26,7 @@ db.once("open", async () => {
       bodypart: bodyparts[0]._id,
       instruction: "",
       weight: 500,
+      reps: 5,
     },
     {
       name: "Canned Coffee",
@@ -36,6 +37,7 @@ db.once("open", async () => {
       bodypart: bodyparts[0]._id,
       instruction: "",
       weight: 500,
+      reps: 5,
     },
     {
       name: "Toilet Paper",
@@ -46,6 +48,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 20,
+      reps: 5,
     },
     {
       name: "Handmade Soap",
@@ -56,6 +59,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 50,
+      reps: 5,
     },
     {
       name: "Set of Wooden Spoons",
@@ -66,6 +70,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 100,
+      reps: 5,
     },
     {
       name: "Camera",
@@ -76,6 +81,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 30,
+      reps: 5,
     },
     {
       name: "Tablet",
@@ -86,6 +92,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 30,
+      reps: 5,
     },
     {
       name: "Tales at Bedtime",
@@ -96,6 +103,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 100,
+      reps: 5,
     },
     {
       name: "Spinning Top",
@@ -106,6 +114,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 1000,
+      reps: 5,
     },
     {
       name: "Set of Plastic Horses",
@@ -116,6 +125,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 1000,
+      reps: 5,
     },
     {
       name: "Teddy Bear",
@@ -126,6 +136,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 100,
+      reps: 5,
     },
     {
       name: "Alphabet Blocks",
@@ -136,6 +147,7 @@ db.once("open", async () => {
       difficulty: "",
       instruction: "",
       weight: 600,
+      reps: 5,
     },
   ]);
 

@@ -15,6 +15,7 @@ const typeDefs = gql`
     weight: Int
     instructions: String
     bodypart: Bodypart
+    reps: Int
   }
 
   type Order {
