@@ -2,7 +2,7 @@ import { reducer } from "../utils/reducers";
 import {
   UPDATE_EXERCISES,
   ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
+  UPDATE_CART_WEIGHT,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
   UPDATE_EXCERCISES,
@@ -50,16 +50,16 @@ test("ADD_TO_CART", () => {
   expect(initialState.cart.length).toBe(2);
 });
 
-test("UPDATE_CART_QUANTITY", () => {
+test("UPDATE_CART_WEIGHT", () => {
   let newState = reducer(initialState, {
-    type: UPDATE_CART_QUANTITY,
+    type: UPDATE_CART_WEIGHT,
     _id: "1",
     purchaseWeight: 3,
   });
 
   expect(newState.cartOpen).toBe(true);
-  expect(newState.cart[0].purchaseQuantity).toBe(3);
-  expect(newState.cart[1].purchaseQuantity).toBe(2);
+  expect(newState.cart[0].purchaseWeight).toBe(3);
+  expect(newState.cart[1].purchaseWeight).toBe(2);
   expect(initialState.cartOpen).toBe(false);
 });
 

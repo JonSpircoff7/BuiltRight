@@ -55,7 +55,7 @@ function ExerciseList() {
               image={exercise.image}
               name={exercise.name}
               instruction={exercise.instruction}
-              quantity={exercise.quantity}
+              weight={exercise.weight}
             />
           ))}
         </div>

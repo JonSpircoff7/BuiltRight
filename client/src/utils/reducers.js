@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import {
   UPDATE_EXERCISES,
   ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
+  UPDATE_CART_WEIGHT,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
   UPDATE_BODYPARTS,
@@ -33,14 +33,14 @@ export const reducer = (state, action) => {
         cart: [...state.cart, ...action.exercises],
       };
     // Returns a copy of state, sets the cartOpen to true and maps through the items in the cart.
-    // If the item's `id` matches the `id` that was provided in the action.payload, we update the purchase quantity.
+    // If the item's `id` matches the `id` that was provided in the action.payload, we update the purchase weight.
     case UPDATE_CART_WEIGHT:
       return {
         ...state,
         cartOpen: true,
         cart: state.cart.map((exercise) => {
           if (action._id === exercise._id) {
-            exercise.purchaseQuantity = action.purchaseQuantity;
+            exercise.purchaseWeight = action.purchaseWeight;
           }
           return exercise;
         }),

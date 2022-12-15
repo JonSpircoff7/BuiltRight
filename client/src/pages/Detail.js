@@ -6,7 +6,7 @@ import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
+  UPDATE_CART_WEIGHT,
   ADD_TO_CART,
   UPDATE_EXERCISES,
 } from '../utils/actions';
@@ -55,13 +55,13 @@ function Detail() {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
     if (itemInCart) {
       dispatch({
-        type: UPDATE_CART_QUANTITY,
+        type: UPDATE_CART_WEIGHT,
         _id: id,
-        purchaseWeight: parseInt(itemInCart.purchaseQuantity) + 1,
+        purchaseWeight: parseInt(itemInCart.purchaseWeight) + 1,
       });
       idbPromise('cart', 'put', {
         ...itemInCart,
-        purchaseWeight: parseInt(itemInCart.purchaseQuantity) + 1,
+        purchaseWeight: parseInt(itemInCart.purchaseWeight) + 1,
       });
     } else {
       dispatch({

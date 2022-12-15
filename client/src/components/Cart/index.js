@@ -41,7 +41,7 @@ const Cart = () => {
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
-      sum += item.instruction * item.purchaseQuantity;
+      sum += item.instruction * item.purchaseWeight;
     });
     return sum.toFixed(2);
   }
@@ -50,7 +50,7 @@ const Cart = () => {
     const exerciseIds = [];
 
     state.cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      for (let i = 0; i < item.purchaseWeight; i++) {
         exerciseIds.push(item._id);
       }
     });
