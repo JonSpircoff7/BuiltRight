@@ -11,6 +11,7 @@ const typeDefs = gql`
     name: String
     bodypart: [Bodypart]
     image: String
+    difficulty: String
     quantity: Int
     price: Float
     bodypart: Bodypart

@@ -19,6 +19,9 @@ const exerciseSchema = new Schema({
   },
   bodypart: [Bodypart.schema],
 
+  image: {
+    type: String,
+  },
   difficulty: {
     type: String,
   },
