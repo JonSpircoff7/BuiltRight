@@ -44,7 +44,7 @@ function ExerciseItem(item) {
       <Link to={`/exercises/${_id}`}>
         <img
           alt={name}
-          src={`/images/${image}`}
+          src={image}
         />
         <p>{name}</p>
       </Link>
