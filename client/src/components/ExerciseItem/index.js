@@ -49,8 +49,8 @@ function ExerciseItem(item) {
         <p>{name}</p>
       </Link>
       <div>
-        <div>{weight} {pluralize("item", weight)} in stock</div>
-        <span>${instruction}</span>
+        <div>{weight}</div>
+        <span>{instruction}</span>
       </div>
       <button onClick={addToCart}>Add to cart</button>
     </div>
