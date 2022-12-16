@@ -52,7 +52,7 @@ function ExerciseItem(item) {
         <div>{weight}</div>
         <span>{instruction}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button onClick={addToCart}>Add Exercise</button>
     </div>
   );
 }
