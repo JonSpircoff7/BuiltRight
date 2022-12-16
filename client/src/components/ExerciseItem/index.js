@@ -12,6 +12,7 @@ function ExerciseItem(item) {
     image,
     name,
     _id,
+    bodypart,
     instruction,
     weight
   } = item;
@@ -52,6 +53,7 @@ function ExerciseItem(item) {
       <div>
         <div>{weight}</div>
         <span>{instruction}</span>
+        <span>{bodypart}</span>
       </div>
       <button onClick={addToCart}>Add Exercise</button>
     </div>
