@@ -85,6 +85,7 @@ function ExerciseList() {
             <ExerciseItem
               key={exercise.uuid}
               _id={exercise._id}
+              bodypart={exercise.category.name}
               image={exercise.images[0].image}
               name={exercise.name}
               instruction={exercise.instruction}
