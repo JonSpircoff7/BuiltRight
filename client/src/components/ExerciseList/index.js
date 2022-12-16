@@ -14,7 +14,7 @@ var data = new FormData();
 
 var config = {
   method: 'get',
-  url: 'https://wger.de/api/v2/exerciseinfo',
+  url: 'https://wger.de/api/v2/exerciseinfo/?limit=1000',
   data : data
 };
 
