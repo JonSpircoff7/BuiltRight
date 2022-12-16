@@ -37,8 +37,16 @@ function ExerciseList() {
   useEffect(() => {
   getExerciseData()
   .then((exercises) => {
-    console.log(exercises.data.results);
-    setResults(exercises.data.results)
+    const results = exercises.data.results.filter((item) => {
+      return(
+        item.videos[0] &&
+        item.language.short_name === "en" &&
+        item.images[0] &&
+        item.description !== []
+      );
+    });
+    console.log(results);
+    setResults(results)
   })
     if (data) {
       dispatch({
