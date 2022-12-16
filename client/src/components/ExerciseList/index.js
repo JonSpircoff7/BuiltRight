@@ -14,7 +14,7 @@ var data = new FormData();
 
 var config = {
   method: 'get',
-  url: 'https://wger.de/api/v2/exerciseinfo',
+  url: 'https://wger.de/api/v2/exerciseinfo/?limit=1000',
   data : data
 };
 
@@ -37,8 +37,16 @@ function ExerciseList() {
   useEffect(() => {
   getExerciseData()
   .then((exercises) => {
-    console.log(exercises.data.results);
-    setResults(exercises.data.results)
+    const results = exercises.data.results.filter((item) => {
+      return(
+        item.videos[0] &&
+        item.language.short_name === "en" &&
+        item.images[0] &&
+        item.description !== []
+      );
+    });
+    console.log(results);
+    setResults(results)
   })
     if (data) {
       dispatch({
@@ -77,7 +85,8 @@ function ExerciseList() {
             <ExerciseItem
               key={exercise.uuid}
               _id={exercise._id}
-              image={exercise.image}
+              bodypart={exercise.category.name}
+              image={exercise.images[0].image}
               name={exercise.name}
               instruction={exercise.instruction}
               weight={exercise.weight}

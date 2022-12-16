@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { pluralize } from "../../utils/helpers"
+// import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_WEIGHT } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -12,6 +12,7 @@ function ExerciseItem(item) {
     image,
     name,
     _id,
+    bodypart,
     instruction,
     weight
   } = item;
@@ -44,15 +45,17 @@ function ExerciseItem(item) {
       <Link to={`/exercises/${_id}`}>
         <img
           alt={name}
-          src={`/images/${image}`}
+          src={image}
+          style={{width: "200px", height: "200px"}}
         />
         <p>{name}</p>
       </Link>
       <div>
-        <div>{weight} {pluralize("item", weight)} in stock</div>
-        <span>${instruction}</span>
+        <div>{weight}</div>
+        <span>{instruction}</span>
+        <span>{bodypart}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button onClick={addToCart}>Add Exercise</button>
     </div>
   );
 }
