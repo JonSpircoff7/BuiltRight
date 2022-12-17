@@ -1,7 +1,7 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
+  --primary: #232f3e;
+  --secondary: #f3a847;
+  --tertiary: #b12704;
   --light: #fafafa;
   --dark: #272f32;
   --error: rgb(228, 46, 1);
@@ -13,19 +13,21 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  min-height: 100%;
+html {
+  height: 100vh;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  background: url("./assets/gym.png");
+  background-size: cover;
+  background-position-y: -100px;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 h1,
@@ -34,7 +36,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
@@ -42,6 +44,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  text-shadow: -8px -6px 0px #494742;
 }
 
 h2 {
@@ -65,14 +68,18 @@ h6 {
 }
 
 p {
-  font-size: 1.1rem;
-  margin-top: 0;
+  -webkit-text-stroke-width: thin;
+  letter-spacing: 1px;
+}
+
+li {
+  list-style: none;
 }
 
 a {
-  color: var(--tertiary);
+  color: #000000;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 a:hover {
@@ -80,36 +87,51 @@ a:hover {
 }
 
 header {
-  background: var(--primary);
+  height: 200px;
 }
 
 header a {
-  color: var(--light);
+  color: #4ed8ed;
+}
+
+.categories {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.categories button {
+  margin-right: 15px;
 }
 
 button {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: none;
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: #ed954e;
 }
 
 button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 button[disabled] {
   cursor: default;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-img {
-  max-width: 100%;
+.exercise {
+  object-fit: contain;
+}
+
+.items {
+  display: flex;
+  justify-content: space-around;
 }
 
 span[role="img"] {
@@ -131,19 +153,30 @@ input {
 
 input:focus {
   border: 1px solid var(--secondary);
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5);
+}
+.navigation {
+  margin: auto;
+}
+
+.navigation a {
+  padding-right: 50px;
+  color: #000000;
 }
 
 .container {
-  width: 85%;
+  width: 35%;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10%;
 }
 
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+}
+
+.center {
+  margin: auto;
 }
 
 .space-between {
@@ -195,8 +228,11 @@ input:focus {
 }
 
 .card {
-  width: 25%;
+  width: 200px;
   text-align: center;
+  margin: 15px 2px;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .error-text {
@@ -207,4 +243,41 @@ input:focus {
   .card {
     width: 100%;
   }
+}
+
+/* chat gpt */
+.card {
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  max-width: 300px;
+  text-align: center;
+  font-family: roboto;
+  background: padding-box;
+  background-color: rgb(255 255 255 / 4%);
+  height: 280px;
+}
+
+.exercise {
+  border-radius: 5px 5px 0 0;
+}
+
+.card p {
+  text-align: center;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.card div {
+  padding: 10px;
+}
+
+.card button {
+  box-shadow: -1px -1px 5px 2px rgb(0 0 0 / 20%);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: roboto;
+}
+
+.card button:hover {
+  opacity: 0.7;
 }

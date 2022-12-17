@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 
-import Cart from '../components/Cart';
-import { useStoreContext } from '../utils/GlobalState';
+import Cart from "../components/Cart";
+import { useStoreContext } from "../utils/GlobalState";
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_WEIGHT,
   ADD_TO_CART,
   UPDATE_EXERCISES,
-} from '../utils/actions';
-import { QUERY_EXERCISES } from '../utils/queries';
-import { idbPromise } from '../utils/helpers';
-import spinner from '../assets/spinner.gif';
+} from "../utils/actions";
+import { QUERY_EXERCISES } from "../utils/queries";
+import { idbPromise } from "../utils/helpers";
+import spinner from "../assets/spinner.gif";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -37,12 +37,12 @@ function Detail() {
       });
 
       data.exercises.forEach((exercise) => {
-        idbPromise('exercises', 'put', exercise);
+        idbPromise("exercises", "put", exercise);
       });
     }
     // get cache from idb
     else if (!loading) {
-      idbPromise('exercises', 'get').then((indexedExercises) => {
+      idbPromise("exercises", "get").then((indexedExercises) => {
         dispatch({
           type: UPDATE_EXERCISES,
           exercises: indexedExercises,
@@ -59,7 +59,7 @@ function Detail() {
         _id: id,
         purchaseWeight: parseInt(itemInCart.purchaseWeight) + 1,
       });
-      idbPromise('cart', 'put', {
+      idbPromise("cart", "put", {
         ...itemInCart,
         purchaseWeight: parseInt(itemInCart.purchaseWeight) + 1,
       });
@@ -68,7 +68,7 @@ function Detail() {
         type: ADD_TO_CART,
         exercise: { ...currentExercise, purchaseWeight: 1 },
       });
-      idbPromise('cart', 'put', { ...currentExercise, purchaseWeight: 1 });
+      idbPromise("cart", "put", { ...currentExercise, purchaseWeight: 1 });
     }
   };
 
@@ -78,7 +78,7 @@ function Detail() {
       _id: currentExercise._id,
     });
 
-    idbPromise('cart', 'delete', { ...currentExercise });
+    idbPromise("cart", "delete", { ...currentExercise });
   };
 
   return (
@@ -92,7 +92,7 @@ function Detail() {
           <p>{currentExercise.description}</p>
 
           <p>
-            <strong>Instruction:</strong>${currentExercise.instruction}{' '}
+            <strong>hi:</strong>${currentExercise.instruction}{" "}
             <button onClick={addToCart}>Add to Cart</button>
             <button
               disabled={!cart.find((p) => p._id === currentExercise._id)}
