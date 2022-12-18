@@ -22,6 +22,13 @@ var config = {
   method: 'get',
   url: `https://wger.de/api/v2${pathname}`,
 };
+
+async function getExerciseData() {
+  const exerciseData = await axios(config)
+  return exerciseData
+}
+
+
 function Detail() {
   // const [state, dispatch] = useStoreContext();
   // const { id } = useParams();
