@@ -42,7 +42,7 @@ function ExerciseItem(item) {
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/exercises/${_id}`}>
+      <Link to={`/exerciseinfo/${_id}`}>
         <img
           alt={name}
           src={image}
