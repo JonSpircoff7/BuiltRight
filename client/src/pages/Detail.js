@@ -118,7 +118,7 @@ let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
 
   return (
     <>
-      {currentExercise && cart ? (
+      {results ? (
         <div className="container my-1">
           <Link to="/">← Back to Exercises</Link>
 
