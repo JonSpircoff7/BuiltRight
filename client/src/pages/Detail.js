@@ -17,6 +17,11 @@ import Cart from '../components/Cart';
 import axios from 'axios';
 
 const pathname = window.location.pathname;
+
+var config = {
+  method: 'get',
+  url: `https://wger.de/api/v2${pathname}`,
+};
 function Detail() {
   // const [state, dispatch] = useStoreContext();
   // const { id } = useParams();
