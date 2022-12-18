@@ -130,8 +130,6 @@ let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
             <strong>Instruction:</strong>{JSON.stringify(description).replace(regex, ' ')}{' '}
             <button>Add to Workout</button>
             <button
-              disabled={!cart.find((p) => p._id === currentExercise._id)}
-              onClick={removeFromCart}
             >
               Remove from Cart
             </button>
