@@ -122,7 +122,7 @@ let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
         <div className="container my-1">
           <Link to="/">← Back to Exercises</Link>
 
-          <h2>{currentExercise.name}</h2>
+          <h2>{results.name}</h2>
 
           <p>{currentExercise.description}</p>
 
