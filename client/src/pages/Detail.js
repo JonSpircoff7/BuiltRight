@@ -44,6 +44,14 @@ function Detail() {
   const [description, setDescription] = useState([]);
 
   useEffect(() => {
+    getExerciseData()
+    .then((exercises) => {
+      console.log(exercises.data);
+      setResults(exercises.data);
+      setDescription(JSON.stringify(exercises.data.description))
+      setCategory(exercises.data.category)
+      setImg(exercises.data.images[0])
+    })
     
 
     // already in global store
@@ -70,6 +78,8 @@ function Detail() {
     //     });
     //   });
     // }
+  }, []);
+
   // const addToCart = () => {
   //   const itemInCart = cart.find((cartItem) => cartItem._id === id);
   //   if (itemInCart) {
