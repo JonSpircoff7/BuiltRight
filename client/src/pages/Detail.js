@@ -124,7 +124,7 @@ let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
 
           <h2>{results.name}</h2>
 
-          <p>{currentExercise.description}</p>
+          <p>Target Muscle: {category.name}</p>
 
           <p>
             <strong>Instruction:</strong>${currentExercise.instruction}{' '}
