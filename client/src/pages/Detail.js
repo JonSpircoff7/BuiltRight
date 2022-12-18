@@ -136,8 +136,8 @@ let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
           </p>
 
           <img
-            src={`/images/${currentExercise.image}`}
-            alt={currentExercise.name}
+            src={img.image}
+            alt={results.name}
           />
         </div>
       ) : null}
