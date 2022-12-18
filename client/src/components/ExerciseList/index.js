@@ -79,12 +79,12 @@ function ExerciseList() {
   return (
     <div className="my-2">
       <h2>Our Exercises:</h2>
-      {state.exercises.length ? (
+      {state.exercises ? (
         <div className="flex-row">
           {results.map((exercise) => (
             <ExerciseItem
               key={exercise.uuid}
-              _id={exercise._id}
+              _id={exercise.id}
               bodypart={exercise.category.name}
               image={exercise.images[0].image}
               name={exercise.name}
@@ -100,5 +100,4 @@ function ExerciseList() {
     </div>
   );
 }
-
 export default ExerciseList;
