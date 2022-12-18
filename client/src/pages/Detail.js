@@ -114,8 +114,7 @@ function Detail() {
   //   console.log(results);
   // }
 
-    idbPromise('cart', 'delete', { ...currentExercise });
-  };
+let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
 
   return (
     <>
