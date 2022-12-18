@@ -15,6 +15,8 @@ import Cart from '../components/Cart';
 // import spinner from '../assets/spinner.gif';
 
 import axios from 'axios';
+
+const pathname = window.location.pathname;
 function Detail() {
   // const [state, dispatch] = useStoreContext();
   // const { id } = useParams();
