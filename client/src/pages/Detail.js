@@ -14,6 +14,7 @@ import Cart from '../components/Cart';
 // import { idbPromise } from '../utils/helpers';
 // import spinner from '../assets/spinner.gif';
 
+import axios from 'axios';
 function Detail() {
   // const [state, dispatch] = useStoreContext();
   // const { id } = useParams();
