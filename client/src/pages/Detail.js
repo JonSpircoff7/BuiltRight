@@ -127,7 +127,7 @@ let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
           <p>Target Muscle: {category.name}</p>
 
           <p>
-            <strong>Instruction:</strong>${currentExercise.instruction}{' '}
+            <strong>Instruction:</strong>{JSON.stringify(description).replace(regex, ' ')}{' '}
             <button onClick={addToCart}>Add to Cart</button>
             <button
               disabled={!cart.find((p) => p._id === currentExercise._id)}
