@@ -38,6 +38,10 @@ function Detail() {
   // const { loading } = useQuery(QUERY_EXERCISES);
 
   // const { exercises, cart } = state;
+  const [results, setResults] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [img, setImg] = useState([]);
+  const [description, setDescription] = useState([]);
 
   useEffect(() => {
     
