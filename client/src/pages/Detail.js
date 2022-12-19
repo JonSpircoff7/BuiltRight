@@ -1,147 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
-import Cart from '../components/Cart';
-// import { useStoreContext } from '../utils/GlobalState';
-// import {
-//   REMOVE_FROM_CART,
-//   UPDATE_CART_WEIGHT,
-//   ADD_TO_CART,
-//   UPDATE_EXERCISES,
-// } from '../utils/actions';
-// import { QUERY_EXERCISES } from '../utils/queries';
-// import { idbPromise } from '../utils/helpers';
-// import spinner from '../assets/spinner.gif';
+import Cart from "../components/Cart";
 
-import axios from 'axios';
-
-const pathname = window.location.pathname;
-
-var config = {
-  method: 'get',
-  url: `https://wger.de/api/v2${pathname}`,
-};
-
-async function getExerciseData() {
-  const exerciseData = await axios(config)
-  return exerciseData
-}
-
+import axios from "axios";
 
 function Detail() {
-  // const [state, dispatch] = useStoreContext();
-  // const { id } = useParams();
-
-  // const [currentExercise, setCurrentExercise] = useState({});
-
-  // const { loading } = useQuery(QUERY_EXERCISES);
-
-  // const { exercises, cart } = state;
-  const [results, setResults] = useState([]);
-  const [category, setCategory] = useState([]);
-  const [img, setImg] = useState([]);
-  const [description, setDescription] = useState([]);
+  const pathname = window.location.pathname;
+  const [results, setResults] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getExerciseData()
-    .then((exercises) => {
-      console.log(exercises.data);
-      setResults(exercises.data);
-      setDescription(JSON.stringify(exercises.data.description))
-      setCategory(exercises.data.category)
-      setImg(exercises.data.images[0])
-    })
-    
-
-    // already in global store
-    // if (exercises.length) {
-    //   setCurrentExercise(exercises.find((exercise) => exercise._id === id));
-    // }
-    // // retrieved from server
-    // else if (data) {
-    //   dispatch({
-    //     type: UPDATE_EXERCISES,
-    //     exercises: data.exercises,
-    //   });
-
-    //   data.exercises.forEach((exercise) => {
-    //     idbPromise('exercises', 'put', exercise);
-    //   });
-    // }
-    // // get cache from idb
-    // else if (!loading) {
-    //   idbPromise('exercises', 'get').then((indexedExercises) => {
-    //     dispatch({
-    //       type: UPDATE_EXERCISES,
-    //       exercises: indexedExercises,
-    //     });
-    //   });
-    // }
+    axios
+      .get(`https://wger.de/api/v2${pathname}`)
+      .then((response) => {
+        setResults(response.data);
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
-  // const addToCart = () => {
-  //   const itemInCart = cart.find((cartItem) => cartItem._id === id);
-  //   if (itemInCart) {
-  //     dispatch({
-  //       type: UPDATE_CART_WEIGHT,
-  //       _id: id,
-  //       purchaseWeight: parseInt(itemInCart.purchaseWeight) + 1,
-  //     });
-  //     idbPromise('cart', 'put', {
-  //       ...itemInCart,
-  //       purchaseWeight: parseInt(itemInCart.purchaseWeight) + 1,
-  //     });
-  //   } else {
-  //     dispatch({
-  //       type: ADD_TO_CART,
-  //       exercise: { ...currentExercise, purchaseWeight: 1 },
-  //     });
-  //     idbPromise('cart', 'put', { ...currentExercise, purchaseWeight: 1 });
-  //   }
-  // };
+  let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
 
-  // const removeFromCart = () => {
-  //   dispatch({
-  //     type: REMOVE_FROM_CART,
-  //     _id: currentExercise._id,
-  //   });
+  if (error) {
+    return <p>An error occurred: {error.message}</p>;
+  }
 
-  //   idbPromise('cart', 'delete', { ...currentExercise });
-  // };
-
-  // if (getExerciseData()) {
-  //   console.log(results);
-  // }
-
-let regex = /(<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>)|(\\+n)|(\\)|(["])/g;
+  if (!results) {
+    return null;
+  }
 
   return (
     <>
-      {results ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Exercises</Link>
+      <div className="container my-1">
+        <Link to="/">← Back to Exercises</Link>
 
-          <h2>{results.name}</h2>
+        <h2>{results.name}</h2>
 
-          <p>Target Muscle: {category.name}</p>
+        <p>Target Muscle: {results.category.name}</p>
 
-          <p>
-            <strong>Instruction:</strong>{JSON.stringify(description).replace(regex, ' ')}{' '}
-            <button>Add to Workout</button>
-            <button
-            >
-              Remove from Cart
-            </button>
-          </p>
+        <p>
+          <strong>Instruction:</strong>
+          {JSON.stringify(results.description).replace(regex, " ")}{" "}
+          <button>Add workout</button>
+          <button>Remove workout</button>
+        </p>
 
-          <img
-            src={img.image}
-            alt={results.name}
-          />
-        </div>
-      ) : null}
-      {/* {loading ? <img src={spinner} alt="loading" /> : null} */}
+        <video
+          controls
+          loop
+          muted
+          autoplay
+          style={{ maxInlineSize: "-webkit-fill-available" }}
+        >
+          <source src={results.videos[0].video} type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <Cart />
     </>
   );

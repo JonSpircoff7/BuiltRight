@@ -7,47 +7,43 @@ import { QUERY_EXERCISES } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
 
-
-import axios from 'axios';
-var FormData = require('form-data');
+import axios from "axios";
+var FormData = require("form-data");
 var data = new FormData();
 
 var config = {
-  method: 'get',
-  url: 'https://wger.de/api/v2/exerciseinfo/?limit=1000',
-  data : data
+  method: "get",
+  url: "https://wger.de/api/v2/exerciseinfo/?limit=1000",
+  data: data,
 };
 
 async function getExerciseData() {
-  const exerciseData = await axios(config)
-  return exerciseData
+  const exerciseData = await axios(config);
+  return exerciseData;
 }
-
 
 function ExerciseList() {
   const [results, setResults] = useState([]);
 
   const [state, dispatch] = useStoreContext();
-  
+
   const { currentBodypart } = state;
-  
+
   const { loading, data } = useQuery(QUERY_EXERCISES);
-  
-  
+
   useEffect(() => {
-  getExerciseData()
-  .then((exercises) => {
-    const results = exercises.data.results.filter((item) => {
-      return(
-        item.videos[0] &&
-        item.language.short_name === "en" &&
-        item.images[0] &&
-        item.description !== []
-      );
+    getExerciseData().then((exercises) => {
+      const results = exercises.data.results.filter((item) => {
+        return (
+          item.videos[0] &&
+          item.language.short_name === "en" &&
+          item.images[0] &&
+          item.description !== []
+        );
+      });
+      console.log(results);
+      setResults(results);
     });
-    console.log(results);
-    setResults(results)
-  })
     if (data) {
       dispatch({
         type: UPDATE_EXERCISES,
@@ -80,7 +76,7 @@ function ExerciseList() {
     <div className="my-2">
       <h2>Our Exercises:</h2>
       {state.exercises ? (
-        <div className="flex-row">
+        <div className="flex-row main">
           {results.map((exercise) => (
             <ExerciseItem
               key={exercise.uuid}
