@@ -90,6 +90,15 @@ header {
   height: 200px;
 }
 
+::-webkit-scrollbar {
+  width: 0.2em;
+  background-color: #727272;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444444;
+}
+
 header a {
   color: #4ed8ed;
 }
