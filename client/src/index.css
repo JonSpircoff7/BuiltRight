@@ -82,6 +82,16 @@ a {
   font-weight: 900;
 }
 
+.main {
+  overflow: scroll;
+  height: 620px;
+  overflow-x: auto;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -95,6 +105,9 @@ header {
   background-color: #727272;
 }
 
+.video {
+  max-inline-size: -webkit-fill-available;
+}
 ::-webkit-scrollbar-thumb {
   background-color: #444444;
 }
@@ -176,7 +189,7 @@ input:focus {
 .container {
   width: 35%;
   max-width: 1200px;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 .flex-row {

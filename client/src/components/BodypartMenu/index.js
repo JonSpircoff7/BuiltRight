@@ -42,7 +42,7 @@ function BodypartMenu() {
   };
 
   return (
-    <div class="categories">
+    <div className="categories">
       {bodyparts.map((item) => (
         <button
           key={item._id}

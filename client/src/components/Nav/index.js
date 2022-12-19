@@ -45,8 +45,8 @@ function Nav() {
       );
     } else {
       return (
-        <div class="flex-row">
-          <li class="navlink">
+        <div className="flex-row">
+          <li className="navlink">
             <Link to="/signup">Signup</Link>
           </li>
 
