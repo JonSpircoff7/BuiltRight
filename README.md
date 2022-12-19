@@ -3,7 +3,7 @@
    ![License Badge](https://img.shields.io/badge/license-MIT-green) 
 
    ## Description
-  Need to add description. 
+  Our exercise app is the ultimate companion for your gym workouts. With our app, you won't have to spend time scrolling through your phone to find the perfect workout routine. Instead, you'll have access to a wide range of expert-designed workouts that are tailored to your fitness goals and experience level. Our app includes easy-to-follow instructions and demonstrated exercises, so you can get the most out of your time at the gym. Plus, our app offers a variety of workouts to choose from, including strength training, cardio, and more. With our app by your side, you'll be able to confidently tackle any workout at the gym. So why wait? Download our app today and start reaching your fitness goals!
 
 ## Table of Contents:
   * [Repo](#repo) 
